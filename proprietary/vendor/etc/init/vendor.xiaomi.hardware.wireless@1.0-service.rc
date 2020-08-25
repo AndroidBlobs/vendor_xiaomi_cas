@@ -1,0 +1,7 @@
+on post-fs-data
+    chown system system /sys/class/power_supply/wireless/reverse_chg_mode
+
+service wireless-hal-1-0 /vendor/bin/hw/vendor.xiaomi.hardware.wireless@1.0-service
+    class hal
+    user system
+    group system

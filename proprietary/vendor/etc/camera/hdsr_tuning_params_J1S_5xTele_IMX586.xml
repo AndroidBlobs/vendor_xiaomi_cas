@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Morpho HDSR Parameters Configuration -->
+<!-- Copyright(c) 2020 Morpho China,Inc.  -->
+
+<hdsr>
+    <camera_id type="int" length="1">5</camera_id>
+	
+    <!--
+        y_nr_levl[]:    luma noise reduction level (ev[0]/ev[1]/ev[..]/dr)
+        uv_nr_levl[]:   chroma noise reduction level (ev[0]/ev[1]/ev[...]/dr) 
+        y_nr_times[]:   luma noise recction times (ev[0]/ev[1]/ev[...]/dr) 
+        uv_nr_times[]:  chroma noise recction times (ev[0]/ev[1]/ev[...]/dr) 
+        unsharp_sigma:  sharpness sigma level 
+        unsharp_sigma2: sharpness sigma2 level 
+        do_unsharp[]:   sharpness strength ((ev[0]/ev[1]/ev[...]/dr)) 
+        obc: object     blur coreciton level
+        input_blur:     image blur level 
+        contrast:       contrast enhancement strength 
+        saturation:     saturation compensation level 
+        fusion_dark:    fusion parameter for lower (darker) side
+        fusion_bright:  fusion parameter for upper (brighter) side
+    -->
+    <tuning_params attr="default">
+			<y_nr_level     type="float"     rang="[0.0,100.0]"    default="10.0"  length="6">8 8 10 10 10 10 1</y_nr_level>
+			<uv_nr_level    type="float"     rang="[0.0,10.0]"     default="1.0"   length="6">1.0 1.0 1.0 1.0 1.0 0</uv_nr_level>
+			<y_nr_times     type="int"       rang="[0,10]"         default="1.0"   length="6">1 1 1 1 1 1 </y_nr_times>
+			<uv_nr_times    type="int"       rang="[0,10]"         default="1.0"   length="6">1 1 1 1 1 0</uv_nr_times>
+			<unsharp_sigma  type="double"    rang="[0.0, 10.0]"    default="0.2"   length="1">0.3</unsharp_sigma>
+			<unsharp_sigma2 type="double"    rang="[0.0, 10.0]"    default="0.6"   length="1">0.8</unsharp_sigma2>
+			<do_unsharp     type="int"       rang="[0,4096]"       default="1200"  length="6">2000 2000 2000 2000 2000 400</do_unsharp>
+			<obc            type="double"    rang="[0.0, 10.0]"    default="3.0"   length="1">3.5</obc>
+			<input_blur     type="double"    rang="[0.0, 5.0]"     default="0"     length="1">0</input_blur>
+			<contrast       type="double"    rang="[0.0, 1.0]"     default="0.002" length="1">0.008</contrast>
+			<saturation     type="double"    rang="[0.0, 1.0]"     default="0"     length="1">0</saturation>
+			<fusion_dark    type="double"    rang="[0.0, 255.0]"   default="10"    length="1">30</fusion_dark>
+			<fusion_bright  type="double"    rang="[0.0, 255.0]"   default="100"   length="1">140</fusion_bright>
+    </tuning_params>
+	
+	<!--iso_table_info: [id, zoom_ratio, iso_start, iso_end]-->
+	<!--
+	<tuning_params attr="customization">
+		<iso_table_info length="0">
+		0 1.0 50 200
+		</iso_table_info>
+		
+		<iso_params_table table_id="0" zoom_ratio="1.0" iso_start="50" iso_end="200">
+			<y_nr_level      type="float"     rang="[0.0,100.0]"    default="10.0"  length="4">20 20 20 10</y_nr_level>
+			<uv_nr_level     type="float"     rang="[0.0,10.0]"     default="1.0"   length="4">2.0 2.0 2.0 0</uv_nr_level>
+			<y_nr_times      type="int"       rang="[0,10]"         default="1.0"   length="4">2 2 2 2</y_nr_times>
+		</iso_params_table>
+	</tuning_params>
+	-->
+</hdsr>

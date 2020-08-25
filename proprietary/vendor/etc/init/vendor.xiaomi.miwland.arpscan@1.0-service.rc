@@ -1,0 +1,4 @@
+service arpscan-hal-1-0 /vendor/bin/hw/vendor.xiaomi.miwland.arpscan@1.0-service
+    class hal
+    user system
+    group system

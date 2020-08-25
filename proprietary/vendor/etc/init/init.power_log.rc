@@ -1,0 +1,16 @@
+on post-fs-data
+	mkdir /data/vendor/power 0771 system system
+
+service power_log /vendor/bin/sh /vendor/bin/power_log.sh
+	class last_start
+	user system
+	group system
+	disabled
+	oneshot
+	seclabel u:r:power_log:s0
+
+on property:persist.sys.power_log=true
+	start power_log
+
+on property:persist.sys.power_log=false
+	stop power_log
